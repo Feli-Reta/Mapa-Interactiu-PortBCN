@@ -4,7 +4,7 @@ const fs = require('fs');
 const cors = require('cors'); // Add CORS support if needed
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const port = process.env.PORT || 80;
 
 // Enable CORS (optional, remove if unnecessary)
 app.use(cors());
@@ -29,6 +29,5 @@ app.get('/api/markers', (req, res) => {
 });
 
 // Start the server
-app.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}`);
+app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 });
