@@ -4,7 +4,7 @@ const fs = require('fs');
 const cors = require('cors'); // Add CORS support if needed
 
 const app = express();
-const port = process.env.PORT || 80;
+const port = process.env.PORT || 443;
 
 // Enable CORS (optional, remove if unnecessary)
 app.use(cors());
