@@ -1,0 +1,174 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevents scrollbars */
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #222;
+}
+
+#map-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+    background-color: #000000;  /* Fondo de color gris claro */
+    cursor: grab;  /* Cambiar el cursor a 'grab' por defecto */
+}
+
+#map-container:active {
+    cursor: grabbing;  /* Cambiar el cursor a 'grabbing' cuando el usuario arrastra */
+}
+
+
+#map-wrapper {
+    width: 100vw;
+    height: calc(100vh - 50px); /* Resta la altura de la leyenda */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#svg-map {
+    width: 1920px;
+    height: 1080px;
+    min-width: 1920px;
+    min-height: 1080px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Popup - Now in 9:16 Aspect Ratio */
+#popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    border-radius: 8px;
+    display: none; /* Hide by default */
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    position: relative;
+    width: 360px; /* 9:16 aspect ratio */
+    height: 640px;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#popup-video {
+    width: 100%;
+    height: 100%;
+}
+
+#close-popup {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+/* 🔳 Barra de Leyenda */
+#legend-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 50px; /* Ajusta si es necesario */
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    display: flex;
+    justify-content: space-around; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    text-align: center;
+    font-size: min(2vw, 18px); /* Hace que el texto se haga más pequeño en pantallas pequeñas */
+    padding: 10px;
+    z-index: 1000;
+}
+
+/* 🍔 Botón de Menú */
+#menu-button {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px 15px;
+    font-size: 18px;
+    border-radius: 5px;
+    z-index: 100;
+}
+
+/* 📜 Menú Lateral */
+#side-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding-top: 60px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+#side-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#side-menu ul li {
+    padding: 15px;
+    text-align: center;
+}
+
+#side-menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+#side-menu ul li a:hover {
+    text-decoration: underline;
+}
+
+/* ❌ Botón de Cerrar */
+#close-menu {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+/* Mostrar Menú */
+.menu-open #side-menu {
+    transform: translateX(0);
+}
