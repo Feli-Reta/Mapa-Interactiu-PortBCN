@@ -30,4 +30,3 @@ app.get('/api/markers', (req, res) => {
 
 // Start the server
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
-});
